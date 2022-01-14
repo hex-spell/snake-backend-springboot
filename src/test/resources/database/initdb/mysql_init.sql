@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS `snake-db`;
+CREATE TABLE IF NOT EXISTS `highscore` (
+  id INT NOT NULL,
+   username VARCHAR(255) NOT NULL,
+   points INT NOT NULL,
+   CONSTRAINT pk_highscore PRIMARY KEY (id)
+);
