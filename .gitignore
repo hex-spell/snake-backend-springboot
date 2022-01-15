@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+## Container volumes
+/mysql-data
+/redis-data
