@@ -1,10 +1,13 @@
 package com.modulariz.snakebackendspringboot.highscores
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import javax.persistence.Cacheable
+import javax.validation.Valid
 
 @RestController
-@RequestMapping("/highscores")
+@Cacheable
 class HighscoreController {
     @Autowired
     lateinit var highscoreRepository: HighscoreRepository
@@ -15,11 +18,12 @@ class HighscoreController {
         return highscores
     }
     @PostMapping
-    fun postHighscore(@RequestBody highscore: HighscoreEntityDto): String {
+    @ResponseStatus(HttpStatus.CREATED)
+    fun postHighscore(@Valid @RequestBody highscore: HighscoreEntityDto): HighscoreEntity {
         val newHighscore = HighscoreEntity()
         newHighscore.username = highscore.username
         newHighscore.points = highscore.points
-        highscoreRepository.save(newHighscore)
-        return "true";
+
+        return highscoreRepository.save(newHighscore)
     }
 }
