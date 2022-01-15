@@ -1,6 +1,9 @@
 # Snake game high-scores
 Learning Kotlin Spring Boot, simple CRUD api with validation and caching, migration of [snake-backend](https://github.com/Modulariz/snake-backend)
 
+## Instructions
+- Spin up redis and mysql containers `docker compose up -d`
+- Run kotlin app using gradle `./gradlew bootRun`
 
 ## Endpoints
 ### GET /
